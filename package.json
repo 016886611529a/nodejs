@@ -1,0 +1,31 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start" : "nodemon --inspect ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/016886611529a/nodejs.git"
+  },
+  "keywords": [
+    "nodejs",
+    "nodejs",
+    "traning"
+  ],
+  "author": "longnn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/016886611529a/nodejs/issues"
+  },
+  "homepage": "https://github.com/016886611529a/nodejs#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
