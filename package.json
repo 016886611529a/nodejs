@@ -26,7 +26,8 @@
   "homepage": "https://github.com/016886611529a/nodejs#readme",
   "dependencies": {
     "express": "^4.18.2",
-    "express-handlebars": "^7.0.7"
+    "express-handlebars": "^7.0.7",
+    "mongoose": "^7.3.1"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
