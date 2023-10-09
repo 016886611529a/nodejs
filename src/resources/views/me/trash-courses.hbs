@@ -60,12 +60,12 @@
      var btnDeleteCourse= document.getElementById('btn-delete-course')
     var restoreForm = document.forms['restore-course-form'];
     var restoreBtn = $('.btn-restore');
-
+  
 
     $('#delete-course-modal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget) // Button that triggered the modal
      courseId = button.data('id') // Extract info from data-* attributes
-
+      console.log(courseId)
       })
    
     btnDeleteCourse.onclick = function() {

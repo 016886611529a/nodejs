@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "612714199392",
+    "project_id": "appbus-huecit",
+    "storage_bucket": "appbus-huecit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612714199392:android:2e4b2df6d8087370188605",
+        "android_client_info": {
+          "package_name": "com.appBus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOuiBmGM0LMYHpZvMx6-TSyDZ-jSprVJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

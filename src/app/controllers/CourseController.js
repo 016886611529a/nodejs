@@ -5,6 +5,7 @@ class CourseController {
     Course.findOne({ slug: req.params.slug })
       .lean()
       .then((course) => {
+        // console.log(course);
         res.render("courses/show", { course });
       })
       .catch(next);

@@ -14,7 +14,10 @@ class SiteController {
   index(req, res, next) {
     Course.find({})
       .lean()
-      .then((courses) => res.render("home", { courses: courses }))
+      .then((courses) => {
+        // console.log("Data from MongoDB:", courses);
+        res.render("home", { courses: courses });
+      })
       .catch((error) => next(error));
   }
   // [GET]  /search
