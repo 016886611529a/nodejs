@@ -8,7 +8,8 @@ const handlebars = require("express-handlebars");
 const app = express();
 const server = http.createServer(app);
 const axios = require("axios");
-
+const multer = require("multer");
+const upload = multer();
 const port = 3001;
 
 const route = require("./routes");
@@ -157,14 +158,22 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   // Cấu hình khác của Firebase Admin SDK nếu cần
 });
-app.post("/send", function (req, res) {
+app.post("/send", upload.none(), function (req, res) {
   // const receivedToken = req.body.fcmToken;
 
-  const topic = "allDevices";
+  // const topic = "allDevices";
+  // const message = {
+  //   notification: {
+  //     title: "Thông báo khẩn",
+  //     body: "Test thông báo .......",
+  //   },
+  const title = req.body.title; // Trích xuất title từ form data
+  const body = req.body.body; // Trích xuất body từ form data
+  console.log(title, body);
   const message = {
     notification: {
-      title: "Thông báo khẩn",
-      body: "Test thông báo .......",
+      title: title,
+      body: body,
     },
     android: {
       notification: {
