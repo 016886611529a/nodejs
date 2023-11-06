@@ -1,5 +1,6 @@
 var { conn, sql } = require("../../connect");
-
+const multer = require("multer");
+const path = require("path");
 exports.getList = async function (req, res) {
   var pool = await conn;
   var sqlString = "SELECT * FROM Student";
@@ -71,4 +72,28 @@ exports.delete = async function (req, res) {
         res.send({ result: "Xóa thất bại" });
       }
     });
+};
+
+const upload = multer().single("file");
+exports.handleUploadFile = function (req, res) {
+  // if (!req.file) {
+  //   return res.status(400).send("Vui lòng chọn một tệp để tải lên.");
+  // }
+  if (req.files.length <= 0) {
+    return res.status(400).send("Vui lòng chọn ít nhất một tệp để tải lên.");
+  }
+  res.status(200).send({ result: "Tải lên thành công." });
+  // upload(req, res, function (err) {
+  //   console.log(res);
+  //   if (req.fileValidationError) {
+  //     return res.send(req.fileValidationError);
+  //   } else if (!req.file) {
+  //     return res.send("Please select an image to upload");
+  //   } else if (err instanceof multer.MulterError) {
+  //     return res.send(err);
+  //   } else if (err) {
+  //     return res.send(err);
+  //   }
+  //   res.status(200).send("File uploaded successfully");
+  // });
 };

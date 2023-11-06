@@ -1,11 +1,11 @@
 const sql = require("mssql");
 const sqlConfig = {
   user: "sa",
-  password: "longnn123",
-  // password: "123456",
+  // password: "longnn123",
+  password: "123456",
   database: "nodejs",
-  server: "LONGNN\\SQLEXPRESS1",
-  // server: "localhost",
+  // server: "LONGNN\\SQLEXPRESS1",
+  server: "localhost",
   pool: {
     max: 10,
     min: 0,
