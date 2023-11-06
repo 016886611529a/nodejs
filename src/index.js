@@ -181,6 +181,7 @@ app.post("/send", upload.none(), function (req, res) {
         color: "#7e55c3",
       },
     },
+
     topic: "allDevices", // Gửi đến tất cả các thiết bị đã đăng ký trong chủ đề này
   };
   admin
