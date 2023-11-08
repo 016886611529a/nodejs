@@ -29,7 +29,7 @@ app.use(express.json());
 
 app.use(methodOverride("_method"));
 //http logger
-// app.use(morgan("combined"));
+app.use(morgan("combined"));
 
 //templates engine
 app.engine(
@@ -47,7 +47,9 @@ app.set("views", path.join(__dirname, "resources", "views"));
 
 //Routes init
 route(app);
-
+app.use((req, res, next) => {
+  return res.send("cc");
+});
 // app.listen(port, () => {
 //   console.log(`app listening on port http://localhost:${port}`);
 // });
