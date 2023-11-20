@@ -5,10 +5,18 @@ const router = express.Router();
 
 const siteController = require("../app/controllers/SiteController");
 const studentController = require("../app/controllers/StudentController");
+const userController = require("../app/controllers/UserController");
+const messageController = require("../app/controllers/MessageController");
 //newsController.index
 
 router.get("/search", siteController.search);
 router.get("/", siteController.index);
+router.post("/user", userController.create);
+router.post("/login", userController.login);
+router.get("/getAllUsers/:id", userController.getAllUsers);
+router.post("/addMessage", messageController.addMessage);
+router.get("/getAllMessages", messageController.getAllMessages);
+
 router.get("/student", studentController.getList);
 
 router.get("/student/:id", studentController.getById);
