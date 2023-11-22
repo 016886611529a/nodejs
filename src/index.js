@@ -104,6 +104,7 @@ io.on("connection", (socket) => {
     console.log("A client disconnected");
   });
 });
+
 const admin = require("firebase-admin");
 const serviceAccount = require("./appbus-huecit-firebase-adminsdk-ozhfr-b07e5cc4c0.json");
 const { initializeApp, applicationDefault } = require("firebase-admin/app");
@@ -217,6 +218,29 @@ app.post("/send", upload.none(), function (req, res) {
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+const ser = server.listen(PORT, () => {
   console.log(`Server is running at http://localhost:${PORT}`);
+});
+///chat app
+const socket = require("socket.io");
+const io1 = socket(ser, {
+  cors: {
+    origin: "http://localhost:3000",
+    credentials: true,
+  },
+});
+
+global.onlineUsers = new Map();
+io1.on("connection", (socket) => {
+  global.chatSocket = socket;
+  socket.on("add-user", (userId) => {
+    onlineUsers.set(userId, socket.id);
+  });
+
+  socket.on("send-msg", (data) => {
+    const sendUserSocket = onlineUsers.get(data.to);
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("msg-receive", data.msg);
+    }
+  });
 });
